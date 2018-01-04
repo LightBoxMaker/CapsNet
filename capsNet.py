@@ -151,12 +151,12 @@ class CapsNet(object):
 
             assert clamped_encoding.get_shape() == [cfg.batch_size,10,16]
 
-#             with self.graph.gradient_override_map({"Identity": "CustomGrad_mean_diff"}):
-#                 clamped_encoding_out = tf.identity(clamped_encoding, name = "Identity")
+            with self.graph.gradient_override_map({"Identity": "CustomGrad_mean_diff"}):
+                clamped_encoding_out = tf.identity(clamped_encoding, name = "Identity")
            
-#             masked_v = tf.multiply(clamped_encoding_out, tf.reshape(self.Y, (-1, 10, 1)))
+            masked_v = tf.multiply(clamped_encoding_out, tf.reshape(self.Y, (-1, 10, 1)))
 
-            masked_v = tf.multiply(clamped_encoding, tf.reshape(self.Y, (-1, 10, 1)))
+            # masked_v = tf.multiply(clamped_encoding, tf.reshape(self.Y, (-1, 10, 1)))
 
             vector_j = tf.reshape(masked_v, shape=(cfg.batch_size, -1))
             fc1 = tf.contrib.layers.fully_connected(vector_j, num_outputs=512)

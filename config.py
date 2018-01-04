@@ -14,14 +14,14 @@ flags.DEFINE_float('lambda_val', 0.5, 'down weight of the loss for absent digit 
 
 # for training
 flags.DEFINE_integer('batch_size', 20, 'batch size')
-flags.DEFINE_integer('epoch', 40, 'epoch')
+flags.DEFINE_integer('epoch', 6, 'epoch')
 flags.DEFINE_integer('iter_routing', 3, 'number of iterations in routing algorithm')
 flags.DEFINE_boolean('mask_with_y', True, 'use the true label to mask out target capsule or not')
 
 flags.DEFINE_float('stddev', 0.01, 'stddev for W initializer')
 flags.DEFINE_float('regularization_scale', 0.005, 'regularization coefficient for reconstruction loss, default to 0.005')
 flags.DEFINE_integer('num_ex_var', 2, 'number of extrinsic variable')
-flags.DEFINE_float('reg_nudge_to_mean', 0.0005, 'learning rate the gradient for non-train variable converging to mean during a step')
+flags.DEFINE_float('reg_nudge_to_mean', 0, 'learning rate the gradient for non-train variable converging to mean during a step')
 
 
 ############################
